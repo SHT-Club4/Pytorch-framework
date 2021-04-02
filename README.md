@@ -34,3 +34,7 @@
             |--*.jpg
         ...
 ```
+利用preprocess.py将数据集格式进行转换（个人习惯）
+```
+python ./data/preprocess.py
+```
