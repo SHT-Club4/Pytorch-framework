@@ -9,7 +9,7 @@ if __name__ == '__main__':
     train_data_path = cfg.BASE + 'train/'
     labels = os.listdir(train_data_path)
     test_data_path = cfg.BASE + 'test/'
-    # 写train.txt文件
+    # 写.txt文件
     txt_path = cfg.BASE
     # print(labels)
     for index, label in enumerate(labels):

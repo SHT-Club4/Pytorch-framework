@@ -16,6 +16,7 @@ def Alexnet(num_classes, test=False):
         else:
             state_dict = torch.load(LOCAL_PRETRAINED['alexnet'])
         model.load_state_dict(state_dict)
+    # 修改分类网络最后一层输出为类别数
     model.classifier.out_features = num_classes
     return model
 

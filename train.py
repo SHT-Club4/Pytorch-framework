@@ -22,12 +22,13 @@ def load_checkpoint(filepath):
 if not cfg.RESUME_EPOCH:
     print('****** Training {} ****** '.format(cfg.model_name))
     print('****** loading the pretrained weights ****** ')
-    if not cfg.model_name.startswith('efficientnet'):  # efficientnet特有，build_model有所不同
+    if not cfg.model_name.startswith('efficientnet'):
         model = cfg.MODEL_NAMES[cfg.model_name](num_classes=cfg.NUM_CLASSES)
         for child in model.children():
             print(child)
             for param in child.parameters():
                 param.requires_grad = True
+    # efficientnet特有，build_model有所不同
     else:
         model = cfg.MODEL_NAMES[cfg.model_name](cfg.model_name, num_classes=cfg.NUM_CLASSES)
         for child in model.children():
