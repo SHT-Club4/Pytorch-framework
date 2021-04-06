@@ -51,6 +51,9 @@ BASE = home + '/sht/pytorch-framework/data/'
 # 训练好的模型保存位置
 SAVE_FOLDER = BASE + 'weights/'
 
+# 结果保存路径
+RESULTS = BASE + 'results/'
+
 # 数据集存放位置
 TRAIN_LABEL_DIR = BASE + 'train.txt'
 VAL_LABEL_DIR = BASE + 'val.txt'

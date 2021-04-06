@@ -24,22 +24,16 @@ if not cfg.RESUME_EPOCH:
     print('****** loading the pretrained weights ****** ')
     if not cfg.model_name.startswith('efficientnet'):  # efficientnet特有，build_model有所不同
         model = cfg.MODEL_NAMES[cfg.model_name](num_classes=cfg.NUM_CLASSES)
-        # 冻结前面一部分层不训练
-        ct = 0
         for child in model.children():
-            ct += 1
-            if ct < 8:
-                print(child)
-                for param in child.parameters():
-                    param.requires_grad = True  # TODO 修改，为什么要冻结前面一部分呢？这里从False改成True，否则报错
+            print(child)
+            for param in child.parameters():
+                param.requires_grad = True
     else:
         model = cfg.MODEL_NAMES[cfg.model_name](cfg.model_name, num_classes=cfg.NUM_CLASSES)
-        c = 0
-        for name, p in model.named_parameters():
-            c += 1
-            if c > 700:
-                break
-            p.requires_grad = False
+        for child in model.children():
+            print(child)
+            for param in child.parameters():
+                param.requires_grad = True
 else:
     print(' ******* Resume training from {}  epoch {} *********'.format(cfg.model_name, cfg.RESUME_EPOCH))
     model = load_checkpoint(os.path.join(save_folder, 'epoch_{}.pth'.format(cfg.RESUME_EPOCH)))
@@ -96,14 +90,14 @@ for iteration in range(start_iter, max_iter):
         if epoch % 5 == 0 and epoch > 0:
             if cfg.GPUS > 1:
                 checkpoint = {
-                    'model': model.modules,
-                    'model_state_dict': model.modules.state_dict(),
+                    'model': model.module,
+                    'model_state_dict': model.module.state_dict(),
                     'epoch': epoch
                 }
                 torch.save(checkpoint, os.path.join(save_folder, 'epoch_{}.pth'.format(epoch)))
             else:
                 checkpoint = {
-                    'model': model.modules,
+                    'model': model,
                     'model_state_dict': model.state_dict(),
                     'epoch': epoch
                 }
