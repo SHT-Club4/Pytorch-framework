@@ -38,3 +38,29 @@
 ```
 python ./data/preprocess.py
 ```
+转换后的数据集为，将训练集的路径与类别存储在train.txt文件中，测试集存储在val.txt中
+
+其中txt文件中的内容为
+```
+# train.txt
+/home/gong/sht/data/train/label1/*.jpg label
+
+# val.txt
+/home/gong/sht/data/train/label1/*.jpg
+```
+```
+|-- data
+    |-- train
+        |--label1
+            |--*.jpg
+        |--label2
+            |--*.jpg
+        |--label    
+            |--*.jpg
+        ...
+
+    |-- val
+        |--*.jpg
+    |--train.txt
+    |--val.txt
+```
