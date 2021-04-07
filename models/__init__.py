@@ -3,21 +3,39 @@ home = os.path.expanduser('~')
 
 # 预训练模型的存放位置
 LOCAL_PRETRAINED = {
+    'vgg11': None,
+    'vgg13': None,
+    'vgg16': None,
+    'vgg19': None,
+    'vgg11_bn': None,
+    'vgg13_bn': None,
+    'vgg16_bn': None,
+    'vgg19_bn': None,
+
     'alexnet': None,
 
-    'resnet18': home + '/weights/resnet18.pth',
-    'resnet34': home + '/weights/resnet34.pth',
-    'resnet50': home + '/weights/resnet50.pth',
-    'resnet101': home + '/weights/resnet101.pth',
-    'resnet152': home + '/weights/resnet152.pth',
+    'resnet18': None,
+    'resnet34': None,
+    'resnet50': None,
+    'resnet101': None,
+    'resnet152': None,
 
-    'densenet121': home + '/weights/densenet121.pth',
-    'densenet161': home + '/weights/densenet161.pth',
-    'densenet169': home + '/weights/densenet169.pth',
-    'densenet201': home + '/weights/densenet201.pth',
+    'densenet121': None,
+    'densenet161': None,
+    'densenet169': None,
+    'densenet201': None
 }
 
 model_urls = {
+    'vgg11': 'https://download.pytorch.org/models/vgg11-bbd30ac9.pth',
+    'vgg13': 'https://download.pytorch.org/models/vgg13-c768596a.pth',
+    'vgg16': 'https://download.pytorch.org/models/vgg16-397923af.pth',
+    'vgg19': 'https://download.pytorch.org/models/vgg19-dcbb9e9d.pth',
+    'vgg11_bn': 'https://download.pytorch.org/models/vgg11_bn-6002323d.pth',
+    'vgg13_bn': 'https://download.pytorch.org/models/vgg13_bn-abd245e5.pth',
+    'vgg16_bn': 'https://download.pytorch.org/models/vgg16_bn-6c64b313.pth',
+    'vgg19_bn': 'https://download.pytorch.org/models/vgg19_bn-c79401a0.pth',
+
     'alexnet': 'https://download.pytorch.org/models/alexnet-owt-4df8aa71.pth',
 
     'resnet18': 'https://download.pytorch.org/models/resnet18-5c106cde.pth',
@@ -29,7 +47,7 @@ model_urls = {
     'densenet121': 'https://download.pytorch.org/models/densenet121-a639ec97.pth',
     'densenet161': 'https://download.pytorch.org/models/densenet161-8d451a50.pth',
     'densenet169': 'https://download.pytorch.org/models/densenet169-b2777c0a.pth',
-    'densenet201': 'https://download.pytorch.org/models/densenet201-c1103571.pth',
+    'densenet201': 'https://download.pytorch.org/models/densenet201-c1103571.pth'
 }
 
 from .vision import *

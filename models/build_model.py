@@ -2,16 +2,29 @@ from torch.hub import load_state_dict_from_url
 import torch.nn as nn
 import torch
 import torchvision
+from models import vgg11, vgg13, vgg16, vgg19, vgg11_bn, vgg13_bn, vgg16_bn, vgg19_bn
 from models import alexnet
 from models import resnet18, resnet34, resnet50, resnet101, resnet152
 from models import densenet121, densenet169, densenet161, densenet201
 from models import LOCAL_PRETRAINED, model_urls
 
 
+def VGG11(num_classes, test=False):
+    model = vgg11()
+    if not test:
+        if LOCAL_PRETRAINED['vgg11'] is None:
+            state_dict = load_state_dict_from_url(model_urls['vgg11'], progress=True)
+        else:
+            state_dict = torch.load(LOCAL_PRETRAINED['vgg11'])
+        model.load_state_dict(state_dict)
+    model.classifier.out_features = num_classes
+    return model
+
+
 def Alexnet(num_classes, test=False):
     model = alexnet()
     if not test:
-        if LOCAL_PRETRAINED['alexnet'] == None:
+        if LOCAL_PRETRAINED['alexnet'] is None:
             state_dict = load_state_dict_from_url(model_urls['alexnet'], progress=True)
         else:
             state_dict = torch.load(LOCAL_PRETRAINED['alexnet'])
@@ -24,7 +37,7 @@ def Alexnet(num_classes, test=False):
 def Resnet18(num_classes, test=False):
     model = resnet18()
     if not test:
-        if LOCAL_PRETRAINED['resnet18'] == None:
+        if LOCAL_PRETRAINED['resnet18'] is None:
             state_dict = load_state_dict_from_url(model_urls['resnet18'], progress=True)
         else:
             state_dict = torch.load(LOCAL_PRETRAINED['resnet18'])
@@ -37,7 +50,7 @@ def Resnet18(num_classes, test=False):
 def Resnet34(num_classes, test=False):
     model = resnet34()
     if not test:
-        if LOCAL_PRETRAINED['resnet34'] == None:
+        if LOCAL_PRETRAINED['resnet34'] is None:
             state_dict = load_state_dict_from_url(model_urls['resnet34'], progress=True)
         else:
             state_dict = torch.load(LOCAL_PRETRAINED['resnet34'])
@@ -50,7 +63,7 @@ def Resnet34(num_classes, test=False):
 def Resnet50(num_classes, test=False):
     model = resnet50()
     if not test:
-        if LOCAL_PRETRAINED['resnet50'] == None:
+        if LOCAL_PRETRAINED['resnet50'] is None:
             state_dict = load_state_dict_from_url(model_urls['resnet50'], progress=True)
         else:
             state_dict = torch.load(LOCAL_PRETRAINED['resnet50'])
@@ -63,7 +76,7 @@ def Resnet50(num_classes, test=False):
 def Resnet101(num_classes, test=False):
     model = resnet101()
     if not test:
-        if LOCAL_PRETRAINED['resnet101'] == None:
+        if LOCAL_PRETRAINED['resnet101'] is None:
             state_dict = load_state_dict_from_url(model_urls['resnet101'], progress=True)
         else:
             state_dict = torch.load(LOCAL_PRETRAINED['resnet101'])
@@ -76,7 +89,7 @@ def Resnet101(num_classes, test=False):
 def Resnet152(num_classes, test=False):
     model = resnet152()
     if not test:
-        if LOCAL_PRETRAINED['resnet152'] == None:
+        if LOCAL_PRETRAINED['resnet152'] is None:
             state_dict = load_state_dict_from_url(model_urls['resnet152'], progress=True)
         else:
             state_dict = torch.load(LOCAL_PRETRAINED['resnet152'])
@@ -89,7 +102,7 @@ def Resnet152(num_classes, test=False):
 def Densenet121(num_classes, test=False):
     model = densenet121()
     if not test:
-        if LOCAL_PRETRAINED['densenet121'] == None:
+        if LOCAL_PRETRAINED['densenet121'] is None:
             state_dict = load_state_dict_from_url(model_urls['densenet121'], progress=True)
         else:
             state_dict = torch.load(LOCAL_PRETRAINED['densenet121'])
@@ -110,7 +123,7 @@ def Densenet121(num_classes, test=False):
 def Densenet161(num_classes, test=False):
     model = densenet161()
     if not test:
-        if LOCAL_PRETRAINED['densenet161'] == None:
+        if LOCAL_PRETRAINED['densenet161'] is None:
             state_dict = load_state_dict_from_url(model_urls['densenet161'], progress=True)
         else:
             state_dict = torch.load(LOCAL_PRETRAINED['densenet161'])
@@ -131,7 +144,7 @@ def Densenet161(num_classes, test=False):
 def Densenet169(num_classes, test=False):
     model = densenet169()
     if not test:
-        if LOCAL_PRETRAINED['densenet169'] == None:
+        if LOCAL_PRETRAINED['densenet169'] is None:
             state_dict = load_state_dict_from_url(model_urls['densenet169'], progress=True)
         else:
             state_dict = torch.load(LOCAL_PRETRAINED['densenet169'])
@@ -152,7 +165,7 @@ def Densenet169(num_classes, test=False):
 def Densenet201(num_classes, test=False):
     model = densenet201()
     if not test:
-        if LOCAL_PRETRAINED['densenet201'] == None:
+        if LOCAL_PRETRAINED['densenet201'] is None:
             state_dict = load_state_dict_from_url(model_urls['densenet201'], progress=True)
         else:
             state_dict = torch.load(LOCAL_PRETRAINED['densenet201'])

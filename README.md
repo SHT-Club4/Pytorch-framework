@@ -141,7 +141,7 @@ model_urls = {
 def Alexnet(num_classes, test=False):
     model = alexnet()
     if not test:
-        if LOCAL_PRETRAINED['alexnet'] == None:
+        if LOCAL_PRETRAINED['alexnet'] is None:
             state_dict = load_state_dict_from_url(model_urls['alexnet'], progress=True)
         else:
             state_dict = torch.load(LOCAL_PRETRAINED['alexnet'])
@@ -154,4 +154,22 @@ def Alexnet(num_classes, test=False):
 from models import Alexnet
 ```
 并修改`cfg.py`中对应参数值
+
+在`MODEL_NAMES`中增加相应键值对
 ### 6. 准备结束，可以开始训练
+
+---
+
+# TODO LIST
+-[ ] 增加分类网络模型
+    -[ ] googleNet
+    -[ ] inceptionNet
+    -[ ] mobileNet
+    -[ ] VGG
+    -[ ] shuffleNetv2
+    -[ ] squeezeNet
+    -[ ] resNext
+    -[ ] efficientNet
+    
+-[ ] 特征图可视化
+-[ ] C++部署

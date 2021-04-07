@@ -27,13 +27,15 @@ MOMENTUM = 0.9
 # 初始学习率
 LR = 1e-3
 
-model_name = 'alexnet'
+model_name = 'vgg11'
 
+from models import VGG11
 from models import Alexnet
 from models import Resnet50, Resnet101, Resnet18, Resnet34, Resnet152
 from models import Densenet121, Densenet169, Densenet161, Densenet201
 
 MODEL_NAMES = {
+    'vgg11': VGG11,
     'alexnet': Alexnet,
     'resnet50': Resnet50,
     'resnet101': Resnet101,
@@ -60,4 +62,4 @@ VAL_LABEL_DIR = BASE + 'val.txt'
 TEST_LABEL_DIR = BASE + 'test.txt'
 
 # 训练完成，权重文件存放路径，默认保存在trained_model下
-TRAINED_MODEL = BASE + 'weights/alexnet/epoch_100.pth'
+TRAINED_MODEL = BASE + 'weights/vgg11/epoch_100.pth'
