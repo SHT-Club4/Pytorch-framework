@@ -165,7 +165,7 @@ from models import Alexnet
     -[ ] googleNet
     -[ ] inceptionNet
     -[ ] mobileNet
-    -[ ] VGG
+    -[x] VGG
     -[ ] shuffleNetv2
     -[ ] squeezeNet
     -[ ] resNext

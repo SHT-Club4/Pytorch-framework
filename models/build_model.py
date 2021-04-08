@@ -21,6 +21,90 @@ def VGG11(num_classes, test=False):
     return model
 
 
+def VGG13(num_classes, test=False):
+    model = vgg13()
+    if not test:
+        if LOCAL_PRETRAINED['vgg13'] is None:
+            state_dict = load_state_dict_from_url(model_urls['vgg13'], progress=True)
+        else:
+            state_dict = torch.load(LOCAL_PRETRAINED['vgg13'])
+        model.load_state_dict(state_dict)
+    model.classifier.out_features = num_classes
+    return model
+
+
+def VGG16(num_classes, test=False):
+    model = vgg16()
+    if not test:
+        if LOCAL_PRETRAINED['vgg16'] is None:
+            state_dict = load_state_dict_from_url(model_urls['vgg16'], progress=True)
+        else:
+            state_dict = torch.load(LOCAL_PRETRAINED['vgg16'])
+        model.load_state_dict(state_dict)
+    model.classifier.out_features = num_classes
+    return model
+
+
+def VGG19(num_classes, test=False):
+    model = vgg19()
+    if not test:
+        if LOCAL_PRETRAINED['vgg19'] is None:
+            state_dict = load_state_dict_from_url(model_urls['vgg19'], progress=True)
+        else:
+            state_dict = torch.load(LOCAL_PRETRAINED['vgg19'])
+        model.load_state_dict(state_dict)
+    model.classifier.out_features = num_classes
+    return model
+
+
+def VGG11_bn(num_classes, test=False):
+    model = vgg11_bn()
+    if not test:
+        if LOCAL_PRETRAINED['vgg11_bn'] is None:
+            state_dict = load_state_dict_from_url(model_urls['vgg11_bn'], progress=True)
+        else:
+            state_dict = torch.load(LOCAL_PRETRAINED['vgg11_bn'])
+        model.load_state_dict(state_dict)
+    model.classifier.out_features = num_classes
+    return model
+
+
+def VGG13_bn(num_classes, test=False):
+    model = vgg13_bn()
+    if not test:
+        if LOCAL_PRETRAINED['vgg13_bn'] is None:
+            state_dict = load_state_dict_from_url(model_urls['vgg13_bn'], progress=True)
+        else:
+            state_dict = torch.load(LOCAL_PRETRAINED['vgg13_bn'])
+        model.load_state_dict(state_dict)
+    model.classifier.out_features = num_classes
+    return model
+
+
+def VGG16_bn(num_classes, test=False):
+    model = vgg16_bn()
+    if not test:
+        if LOCAL_PRETRAINED['vgg16_bn'] is None:
+            state_dict = load_state_dict_from_url(model_urls['vgg16_bn'], progress=True)
+        else:
+            state_dict = torch.load(LOCAL_PRETRAINED['vgg16_bn'])
+        model.load_state_dict(state_dict)
+    model.classifier.out_features = num_classes
+    return model
+
+
+def VGG19_bn(num_classes, test=False):
+    model = vgg19_bn()
+    if not test:
+        if LOCAL_PRETRAINED['vgg19_bn'] is None:
+            state_dict = load_state_dict_from_url(model_urls['vgg19_bn'], progress=True)
+        else:
+            state_dict = torch.load(LOCAL_PRETRAINED['vgg19_bn'])
+        model.load_state_dict(state_dict)
+    model.classifier.out_features = num_classes
+    return model
+
+
 def Alexnet(num_classes, test=False):
     model = alexnet()
     if not test:
@@ -29,7 +113,6 @@ def Alexnet(num_classes, test=False):
         else:
             state_dict = torch.load(LOCAL_PRETRAINED['alexnet'])
         model.load_state_dict(state_dict)
-    # 修改分类网络最后一层输出为类别数
     model.classifier.out_features = num_classes
     return model
 

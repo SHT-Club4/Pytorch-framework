@@ -88,7 +88,7 @@ for iteration in range(start_iter, max_iter):
         loss = 0
         epoch += 1
         # 保存模型
-        if epoch % 5 == 0 and epoch > 0:
+        if epoch % 100 == 0 and epoch > 0:  # 暂时调整为100，节省存储空间，方便测试模型
             if cfg.GPUS > 1:
                 checkpoint = {
                     'model': model.module,

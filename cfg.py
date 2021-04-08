@@ -15,7 +15,7 @@ INPUT_SIZE = 300
 MAX_EPOCH = 100
 
 # 使用GPU的数目
-GPUS = 1
+GPUS = 2
 
 # 从第几个epoch开始训练，如果是0，从头开始
 RESUME_EPOCH = 0
@@ -29,13 +29,21 @@ LR = 1e-3
 
 model_name = 'vgg11'
 
-from models import VGG11
+from models import VGG11, VGG13, VGG16, VGG19, VGG11_bn, VGG13_bn, VGG16_bn, VGG19_bn
 from models import Alexnet
 from models import Resnet50, Resnet101, Resnet18, Resnet34, Resnet152
 from models import Densenet121, Densenet169, Densenet161, Densenet201
 
 MODEL_NAMES = {
     'vgg11': VGG11,
+    'vgg13': VGG13,
+    'vgg16': VGG16,
+    'vgg19': VGG19,
+    'vgg11_bn': VGG11_bn,
+    'vgg13_bn': VGG13_bn,
+    'vgg16_bn': VGG16_bn,
+    'vgg19_bn': VGG19_bn,
+
     'alexnet': Alexnet,
     'resnet50': Resnet50,
     'resnet101': Resnet101,
