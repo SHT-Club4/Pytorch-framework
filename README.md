@@ -1,6 +1,8 @@
 # pytorch-framework
 利用pytorch实现图像分类，其中包含alexnet，resnet，densenet（其他网络可添加）等图像分类网络
 
+---
+
 ## 功能
 * 基础功能：使用pytorch实现图像分类
 * 带有warmup的step学习率调整
@@ -10,9 +12,12 @@
 * python3.7
 * pytorch 1.7
 
-## 代码仓库使用
+---
 
-### 1.准备数据集
+# 代码仓库使用
+
+## 数据集
+
 原始数据集形式为，同一个类别的图像存储在同一个文件夹下，所有图像存储在主文件夹data下
 
 ```text
@@ -79,7 +84,7 @@ python ./data/preprocess.py
     |--test.txt
 ```
 
-### 2.训练
+## 训练
 在`cfg.py`中修改合适的参数，参数具体含义已将注释文件中
 
 在`train.py`中选择合适的模型
@@ -88,14 +93,20 @@ python ./data/preprocess.py
 pyhton train.py
 ```
 
-### 3.预测
+## 预测
 在`cfg.py`中的`TRAINED_MODEL`设置已训练好的权重文件的位置
 
 ```shell
 python predict.py
 ```
 
-# 一些实现细节
+## 特征图可视化
+
+
+
+---
+
+# NOTICE
 ## 增加新模型的步骤（以alexnet为例）
 ### 1. 在`models/vision`中创建*.py（alexnet.py)
 ```python
