@@ -37,7 +37,7 @@ def load_checkpoint(filepath):
     return model
 
 
-save_path = '/'
+save_path = './'
 
 
 def predict(model):

@@ -53,8 +53,8 @@ if torch.cuda.is_available():
 
 # 定义优化器和损失函数
 # optimizer = optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=cfg.LR)
-optimizer = optim.Adam(model.parameters(), lr=cfg.LR)
-# optimizer = optim.SGD(model.parameters(), lr=cfg.LR, momentum=cfg.MOMENTUM, weight_decay=cfg.WEIGHT_DECAY)
+# optimizer = optim.Adam(model.parameters(), lr=cfg.LR)
+optimizer = optim.SGD(model.parameters(), lr=cfg.LR, momentum=cfg.MOMENTUM, weight_decay=cfg.WEIGHT_DECAY)
 criterion = nn.CrossEntropyLoss()
 # criterion = nn.BCEWithLogitsLoss()
 # criterion = LabelSmoothSoftmaxCE()
@@ -107,8 +107,8 @@ for iteration in range(start_iter, max_iter):
         step_index += 1
 
     # 选择何种学习率调整方式
-    lr = adjust_learning_rate_step(optimizer, cfg.LR, 0.1, epoch, step_index, iteration, epoch_size)
-    # lr = adjust_learning_rate_cosine(optimizer, global_step=global_step, learning_rate_base=cfg.LR, total_steps=max_iter, warmup_steps=warmup_steps)
+    # lr = adjust_learning_rate_step(optimizer, cfg.LR, 0.1, epoch, step_index, iteration, epoch_size)
+    lr = adjust_learning_rate_cosine(optimizer, global_step=global_step, learning_rate_base=cfg.LR, total_steps=max_iter, warmup_steps=warmup_step)
 
     images, labels = next(batch_iterator)
     if torch.cuda.is_available():

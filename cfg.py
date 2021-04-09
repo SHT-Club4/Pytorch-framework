@@ -15,7 +15,7 @@ INPUT_SIZE = 300
 MAX_EPOCH = 100
 
 # 使用GPU的数目
-GPUS = 2
+GPUS = 1
 
 # 从第几个epoch开始训练，如果是0，从头开始
 RESUME_EPOCH = 0
