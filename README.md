@@ -102,6 +102,14 @@ python predict.py
 
 ## 特征图可视化
 
+`visiualization`文件夹中，实现对特网络中某层输出的特征图的可视化
+
+测试图片存放在`visiualization`文件目录下
+
+```shell
+cd visiualization
+python feature_visiualization.py
+```
 
 
 ---
@@ -182,5 +190,5 @@ from models import Alexnet
     -[ ] resNext
     -[ ] efficientNet
     
--[ ] 特征图可视化
+-[x] 特征图可视化
 -[ ] C++部署

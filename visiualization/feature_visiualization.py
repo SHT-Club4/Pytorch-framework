@@ -37,6 +37,7 @@ def load_checkpoint(filepath):
     return model
 
 
+# 输出特征图存放路径
 save_path = './'
 
 
@@ -51,11 +52,12 @@ def predict(model):
         img = img.cuda()
     with torch.no_grad():
         # 以vgg11为例
+        # 不同网络结构要做相应的修改
         x = model.features(img)
         draw_features(8, 8, 64, x.cpu().numpy(), "{}/features.jpg".format(save_path))
 
 
 if __name__ == '__main__':
-    trained_model = cfg.TRAINED_MODEL
-    img_path = './test.jpg'
+    trained_model = cfg.TRAINED_MODEL  # 用于可视化的权重文件路径
+    img_path = './test.jpg'  # 测试图片路径
     predict(trained_model)
