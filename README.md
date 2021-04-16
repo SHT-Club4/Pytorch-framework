@@ -180,15 +180,15 @@ from models import Alexnet
 ---
 
 # TODO LIST
--[ ] 增加分类网络模型
-    -[ ] googleNet
-    -[ ] inceptionNet
-    -[ ] mobileNet
-    -[x] VGG
-    -[ ] shuffleNetv2
-    -[ ] squeezeNet
-    -[ ] resNext
-    -[ ] efficientNet
+- [ ] 增加分类网络模型
+    - [ ] googleNet
+    - [ ] inceptionNet
+    - [ ] mobileNet
+    - [x] VGG
+    - [ ] shuffleNetv2
+    - [ ] squeezeNet
+    - [ ] resNext
+    - [ ] efficientNet
     
--[x] 特征图可视化
--[ ] C++部署
+- [x] 特征图可视化
+- [ ] C++部署
